@@ -9,7 +9,9 @@ function signup(req, res) {
       res.json({token: createJWT(user)});
     })
     // User data invalid (prob duplicate email)
-    .catch(err => res.status(400).json(err));
+    .catch(err => {
+      res.status(400).json(err)
+    });
 }
 
 function login(req, res) {
@@ -18,12 +20,14 @@ function login(req, res) {
     user.comparePassword(req.body.pw, (err, isMatch) => {
       if (isMatch) {
         var token = createJWT(user);
-        res.json({token: createJWT(user)});
+        res.json({token});
       } else {
         return res.status(401).json({err: 'bad credentials'});
       }
     });
-  }).catch(err => res.status(401).json(err));
+  }).catch(err => {
+    res.status(401).json(err)
+  });
 }
 
 /*----- Helper Functions -----*/

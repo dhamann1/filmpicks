@@ -16,7 +16,7 @@ class App extends Component {
     super();
     this.state = {
       user: null,
-      movies: null 
+      movies: [] 
     };
   }
 
@@ -40,12 +40,11 @@ class App extends Component {
   componentDidMount(){
     let user = userService.getUser(); 
     this.setState({user});
-    
     fetch('/api/movies',
     {
       method: 'get'
     })
-      .then(movies => movies.json())
+      .then(res => res.json())
       .then(movies => this.setState({movies}))
     
   }
