@@ -23,6 +23,8 @@ app.use(require('./config/auth'));
 
 // Put API routes here, before the "catch all" route
 app.use('/api/users', require('./routes/api/users'));
+app.use('/api/movies', require('./routes/api/movies')); 
+// app.use('/api/topscores', require('./routes/api/topscores'));
 
 // The following "catch all" route is necessary for
 // a SPA'sclient-side routing to properly work

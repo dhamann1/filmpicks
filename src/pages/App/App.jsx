@@ -9,7 +9,7 @@ import SignupPage from '../SignupPage/SignupPage';
 import LoginPage from '../LoginPage/LoginPage';
 import MainPage from '../MainPage/MainPage';
 import userService from '../../utils/userService';
-var nytKey = process.env.nytKey;
+
  
 
 
@@ -40,31 +40,18 @@ class App extends Component {
 
   //Lifecycle Methods 
   componentDidMount(){
-    console.log(nytKey);
+    console.log('getting data')
     let user = userService.getUser(); 
-
-    function searchMovies(title){
-      fetch(`https://developer.nytimes.com/proxy/https/api.nytimes.com/svc/movies/v2/reviews/search.json?api-key=62f8df6a646e4a2a8068b3a25eb9d1cb&query=${title}`,
-      {
-        method: 'get'
-      })
-      .then(response => response.json())
-      .then(movies => movies)
-      .catch((error) => {
-        console.log(error)
-        console.error(error)
-      })
-    }
-    var movie = searchMovies("lego"); 
-
-    Promise.all([user, movie]).then(data => {
-      console.log(data);
-      this.setState({user: data[0], movies: data[1]})
+    this.setState({user});
+    
+    fetch('/api/movies',
+    {
+      method: 'get'
     })
+      .then(movies => movies.json())
+      .then(movies => this.setState({movies}))
+    
   }
-
-  Promi
-
 
 
   render() {
@@ -72,6 +59,12 @@ class App extends Component {
       <div>
         <Router>
           <Switch>
+            {/* <Route exact path='/' render={() =>
+              <MainPage
+                user={this.state.user}
+                handleLogout={this.handleLogout}
+              />
+            }/> */}
             <Route exact path='/' render={() =>
               <MainPage
                 user={this.state.user}

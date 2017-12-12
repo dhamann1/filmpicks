@@ -3,9 +3,10 @@ var Schema = mongoose.Schema;
 
 
 var postSchema = new Schema ({
-    text: String, 
+    text: String,
+    display_title: String, 
     userId: { type: Schema.Types.ObjectId, ref: 'User' },
-    movieId: { type: Schema.Types.ObjectId, ref: 'Movie' }, 
+    
 });
 
 
