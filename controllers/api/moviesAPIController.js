@@ -8,9 +8,8 @@ function findAllMovies (req, res) {
     // console.log('tmbdResponse' , tmbdResponse); 
     var tmbdBody = JSON.parse(tmbdResponse.body)
     var response = {movies: tmbdBody.results};
-    console.log(tmbdBody.results[0].id);
+    var response = response.movies; 
     res.json(response);
-
   })
 }
 

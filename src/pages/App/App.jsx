@@ -11,8 +11,6 @@ import MainPage from '../MainPage/MainPage';
 import userService from '../../utils/userService';
 
  
-
-
 class App extends Component {
   constructor(props){
     super();
@@ -40,7 +38,6 @@ class App extends Component {
 
   //Lifecycle Methods 
   componentDidMount(){
-    console.log('getting data')
     let user = userService.getUser(); 
     this.setState({user});
     
@@ -54,27 +51,28 @@ class App extends Component {
   }
 
 
+
+
+
+
+
   render() {
     return (
       <div>
         <Router>
           <Switch>
-            {/* <Route exact path='/' render={() =>
-              <MainPage
-                user={this.state.user}
-                handleLogout={this.handleLogout}
-              />
-            }/> */}
             <Route exact path='/' render={() =>
               <MainPage
                 user={this.state.user}
                 handleLogout={this.handleLogout}
+                movies={this.state.movies}
               />
             }/>
             <Route exact path='/signup' render={(props) => 
               <SignupPage 
                 {...props}
                 handleSignup={this.handleSignup}
+
               />
             }/>
             <Route exact path='/login' render={(props) => 
