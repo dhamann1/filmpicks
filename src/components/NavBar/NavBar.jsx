@@ -16,11 +16,13 @@ const NavBar = (props) => {
     <Link to='/signup' className='NavBar-link'>Sign Up</Link>
   </div>;
   return (
-    <div className='NavBar'>
+    <div className='nav-wrapper blue darken-4'>
       {nav}
     </div>
   );
 };
 
 export default NavBar;
+
+
 

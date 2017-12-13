@@ -1,16 +1,23 @@
 import React from 'react';
 import './MovieGrid.css';
+import { Link } from 'react-router-dom';
+
 
 const MovieGrid = (props) => {
     return (
-    <div>
+    <div className='container'>
+    <div className="row">
         {props.movies ?
-        props.movies.map((movie, idx) => <li key={idx}><img src={`https://image.tmdb.org/t/p/w154/${movie.poster_path}`} /> <br/>
-        {movie.title}&nbsp;&nbsp;{movie.vote_average}</li>)
+        props.movies.map((movie, idx) => 
+        <div className="col s12 m5" key={idx}><img src={`https://image.tmdb.org/t/p/w342/${movie.poster_path}`} /> <br/>
+        <Link to={`/movies/${movie.id}`}>{movie.title}</Link></div>)
         :
-        <h2>LOADING</h2>}    
+        <h2>Loading</h2>} 
+    </div>
     </div>
     ); 
 }
 
 export default MovieGrid; 
+
+

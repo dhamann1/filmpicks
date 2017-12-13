@@ -8,6 +8,7 @@ import {
 import SignupPage from '../SignupPage/SignupPage';
 import LoginPage from '../LoginPage/LoginPage';
 import MainPage from '../MainPage/MainPage';
+import ShowPage from '../ShowPage/ShowPage';
 import userService from '../../utils/userService';
 
  
@@ -16,10 +17,8 @@ class App extends Component {
     super();
     this.state = {
       user: null,
-      movies: [] 
     };
   }
-
 
   //User Callback Methods 
   handleLogout = () => {
@@ -35,38 +34,32 @@ class App extends Component {
     this.setState({user: userService.getUser()});
   }
 
-
   //Lifecycle Methods 
   componentDidMount(){
     let user = userService.getUser(); 
-    this.setState({user});
-    fetch('/api/movies',
-    {
-      method: 'get'
-    })
-      .then(res => res.json())
-      .then(movies => this.setState({movies}))
-    
+    this.setState({user});    
   }
-
-
-
-
-
-
 
   render() {
     return (
       <div>
         <Router>
           <Switch>
-            <Route exact path='/' render={() =>
+            <Route exact path='/' render={(props) =>
               <MainPage
+                {...props}
                 user={this.state.user}
                 handleLogout={this.handleLogout}
-                movies={this.state.movies}
               />
             }/>
+            <Route exact path='/movies/:id' render={(props) => 
+              <ShowPage 
+                {...props}
+                user={this.state.user}
+                handleLogout={this.handleLogout}
+                id={props.match.params.id}
+              /> 
+            }/> 
             <Route exact path='/signup' render={(props) => 
               <SignupPage 
                 {...props}
@@ -86,6 +79,5 @@ class App extends Component {
     );
   }
 }
-
 
 export default App; 
