@@ -10,6 +10,9 @@ class MoviePage extends Component {
         }
     }
 
+
+    
+    
     componentDidMount(){
         fetch(`/api/movies/${this.props.match.params.id}`,{
             method: 'get'
@@ -18,6 +21,25 @@ class MoviePage extends Component {
         .then(movie => this.setState({movie}))  
     }
 
+
+    favorite = (event) => {
+        console.log('favorite button gets hit');
+        event.preventDefault(); 
+        fetch('/api/users/like',
+        {
+          method: 'POST',
+          body: JSON.stringify({
+            movieTitle: this.state.movie.title, 
+            movieID: this.state.movie.id,
+            image: `https://image.tmdb.org/t/p/w185/${this.state.movie.poster_path}` 
+        }),
+          headers: {
+              'Accept': 'application/json',
+              'Content-Type': 'application/json'
+            }
+          })
+        }
+    
     render () {
         console.log('this.state', this.state)
         if (this.state.movie) {
@@ -25,7 +47,7 @@ class MoviePage extends Component {
         }
       return (
         <div>
-            <MovieShow movie={this.state.movie}/> 
+            <MovieShow movie={this.state.movie} favorite={this.favorite}/> 
         </div>  
       )
     }

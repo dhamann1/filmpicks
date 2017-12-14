@@ -9,8 +9,9 @@ const MovieShow = (props) => {
             {
             props.movie ?
             <div> 
-                <h1>{props.movie.title}</h1> 
-                <img className="picShow" src={`https://image.tmdb.org/t/p/w500/${props.movie.poster_path}`} />
+                <h4>{props.movie.title}</h4> 
+                <button onClick={props.favorite}>You like this shit?</button>
+                <img className="picShow" src={`https://image.tmdb.org/t/p/w500/${props.movie.poster_path}`} alt='Movie Poster'/>
             </div>
             : 
             <div>

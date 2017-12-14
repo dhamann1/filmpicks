@@ -30,6 +30,16 @@ function login(req, res) {
   });
 }
 
+
+function userProfile(req, res){
+  console.log('hey')
+}
+
+
+function like (req,res){
+  console.log(req.body);
+}
+
 /*----- Helper Functions -----*/
 
 function createJWT(user) {
@@ -42,5 +52,7 @@ function createJWT(user) {
 
 module.exports = {
   signup,
-  login
+  login,
+  userProfile,
+  like
 };

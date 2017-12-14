@@ -10,7 +10,7 @@ import SignupPage from '../SignupPage/SignupPage';
 import LoginPage from '../LoginPage/LoginPage';
 import MainPage from '../MainPage/MainPage';
 import MoviePage from '../MoviePage/MoviePage';
-import UserPage from '../UserPage/UserPage';
+import ProfilePage from '../ProfilePage/ProfilePage';
 import userService from '../../utils/userService';
  
 class App extends Component {
@@ -54,23 +54,31 @@ class App extends Component {
               <Route exact path='/' render={(props) =>
                 <MainPage
                   {...props}
+                  handleLogout={this.handleLogout} 
+                  
                 />
               }/>
               <Route exact path='/movies/:id' render={(props) => 
                 <MoviePage 
                   {...props}
+                  handleLogout={this.handleLogout} 
+                  
                 /> 
               }/> 
               <Route exact path='/profile' render={(props) => 
-                <UserPage 
+                <ProfilePage 
                   {...props}
                   user={this.state.user}
+                  handleLogout={this.handleLogout} 
+                  
                 /> 
               }/> 
               <Route exact path='/signup' render={(props) => 
                 <SignupPage 
                   {...props}
                   handleSignup={this.handleSignup}
+                  handleLogout={this.handleLogout} 
+                  
 
                 />
               }/>
@@ -78,6 +86,8 @@ class App extends Component {
                 <LoginPage 
                   {...props}
                   handleLogin={this.handleLogin}
+                  handleLogout={this.handleLogout} 
+                  
                 /> 
               }/>
             </Switch>

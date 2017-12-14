@@ -11,3 +11,7 @@
 .NavBar-welcome {
   color: grey; 
 }
+
+.navIcon {
+  width: 50px; 
+}
