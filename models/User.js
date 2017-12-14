@@ -9,7 +9,7 @@ var userSchema = new Schema({
   name: String,
   email: {type: String, required: true, lowercase: true, unique: true},
   password: String,
-  movieId: [], 
+  movies: [{ type: Schema.Types.ObjectId, ref: 'Movie' }], 
 }, {
   timestamps: true
 });

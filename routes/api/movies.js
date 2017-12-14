@@ -8,7 +8,7 @@ router.get('/toprated', moviesAPIController.topRated);
 
 router.get('/popular', moviesAPIController.popular);
 
-// router.post('/:id', moviesAPIController.showMovie); 
+router.get('/:id', moviesAPIController.showMovie); 
 
 module.exports = router;
 

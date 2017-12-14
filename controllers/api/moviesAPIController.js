@@ -27,10 +27,10 @@ function popular (req, res) {
 }
 
 function showMovie (req, res) {
-  console.log("my name is earl"); 
-  request(`https://api.themoviedb.org/3/movie/${req.params.match.movie.id}?api_key=${tmbdKey}&language=en-US`,function (error, tmbdResponse) {
+  request(`https://api.themoviedb.org/3/movie/${req.params.id}?api_key=${tmbdKey}&language=en-US`,function (error, tmbdResponse) {
     var tmbdBody = JSON.parse(tmbdResponse.body);
-    var movie = tmbdBody.results;
+    var movie = tmbdBody;
+    console.log(movie);
     res.json(movie);
   })
 }
@@ -39,12 +39,13 @@ function showMovie (req, res) {
 module.exports = {
   nowPlaying,
   topRated,
-  popular
+  popular,
+  showMovie
 }
 
 
 
-// Comment.find({movieId: id}, (error, comments) => {
+// Movie.find({movieId: id}, (error, comments) => {
 //   response.comments = comments;
 //   res.json(response);
 // })

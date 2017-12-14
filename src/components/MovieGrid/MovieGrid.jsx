@@ -41,6 +41,25 @@ class MovieGrid extends Component {
           .then(movies => this.setState({movies})) 
     }
 
+    // handleSubmit(e) {
+    //   e.preventDefault()
+    //   console.log('working', this.state.name);
+    //     fetch('/api/movies/***'), {
+    //       method: 'POST',
+    //       headers: new Headers({
+    //         'Content-Type': 'application/json',
+    //       }),
+    //       body: JSON.stringify({name: this.state.name})
+    //     }
+    //     .then(res => res.json())
+    //     .catch(err =>console.log(err))
+    // }
+
+    // handleChange(field, e){
+    //   this.setState({
+    //     [field]: e.target.value
+    //   });
+    // }
 
 
 //Function NowPlaying (Fetch NowPlaying)
@@ -48,12 +67,10 @@ class MovieGrid extends Component {
     render() {
         return (
             <div>
-
+            <div className="container">
             <button onClick={this.nowPlaying}>Now Playing</button>
             <button onClick={this.topRated}>Top Rated</button>
             <button onClick={this.popular}>Popular</button>
-
-            <div className="container">
                 <div className="row">
                 
                 {this.state.movies ?

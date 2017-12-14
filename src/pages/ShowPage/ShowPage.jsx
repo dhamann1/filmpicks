@@ -1,40 +1,15 @@
-// import React, { Component } from 'react';
-// import './ShowPage.css';
-// import NavBar from '../../components/NavBar/NavBar';
+import React from 'react';
+import './ShowPage.css';
+import Movie from '../../components/Movie/Movie';
 
 
-// class ShowPage extends Component {
-//     constructor(props){
-//         console.log(props);
-//         super();
-//         this.state = {
-//             movie: {}
-//         }
-//     }
+const ShowPage = (props) => {
+    return (
+        <div> 
+            <h1> this is the movie show page </h1> 
+            <Movie movie={props.match.params.id}/> 
+        </div> 
+    ) 
+}
 
-// componentDidMount(){
-//     fetch('/api/movies/:id',
-//     {
-//       method: 'post',
-//       body: `${req.params.id}`, 
-//     })
-//       .then(res => res.json())
-//       .then(movie => this.setState({movie}))  
-//   }
-
-//   render () {
-//       return (
-//         <div>
-//             <h1> This is the Movie Show Page </h1> 
-//             <ShowPageComponent id={props.match.params.}
-//         </div> 
-        
-//       )
-//   }
-
-
-// }
-
-
-
-// export default ShowPage; 
+export default ShowPage; 
