@@ -9,8 +9,8 @@ import SignupPage from '../SignupPage/SignupPage';
 import LoginPage from '../LoginPage/LoginPage';
 import MainPage from '../MainPage/MainPage';
 import ShowPage from '../ShowPage/ShowPage';
+import UserPage from '../UserPage/UserPage';
 import userService from '../../utils/userService';
-
  
 class App extends Component {
   constructor(props){
@@ -57,7 +57,13 @@ class App extends Component {
                 {...props}
                 user={this.state.user}
                 handleLogout={this.handleLogout}
-                id={props.match.params.id}
+              /> 
+            }/> 
+            <Route exact path='/user/:id' render={(props) => 
+              <UserPage 
+                {...props}
+                user={this.state.user}
+                handleLogout={this.handleLogout}
               /> 
             }/> 
             <Route exact path='/signup' render={(props) => 

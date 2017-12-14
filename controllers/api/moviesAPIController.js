@@ -10,9 +10,25 @@ function nowPlaying (req, res) {
   })
 }
 
+function topRated (req, res) {
+  request(`https://api.themoviedb.org/3/movie/top_rated?api_key=${tmbdKey}&language=en-US&`,function (error, tmbdResponse) {
+    var tmbdBody = JSON.parse(tmbdResponse.body)
+    var movies = tmbdBody.results;
+    res.json(movies);
+  })
+}
+
+function popular (req, res) {
+  request(`https://api.themoviedb.org/3/movie/popular?api_key=${tmbdKey}&language=en-US&page=1`,function (error, tmbdResponse) {
+    var tmbdBody = JSON.parse(tmbdResponse.body)
+    var movies = tmbdBody.results;
+    res.json(movies);
+  })
+}
+
 function showMovie (req, res) {
   console.log("my name is earl"); 
-  request(`https://api.themoviedb.org/3/movie/${req.params.id}?api_key=${tmbdKey}&language=en-US`,function (error, tmbdResponse) {
+  request(`https://api.themoviedb.org/3/movie/${req.params.match.movie.id}?api_key=${tmbdKey}&language=en-US`,function (error, tmbdResponse) {
     var tmbdBody = JSON.parse(tmbdResponse.body);
     var movie = tmbdBody.results;
     res.json(movie);
@@ -22,7 +38,8 @@ function showMovie (req, res) {
 
 module.exports = {
   nowPlaying,
-  showMovie
+  topRated,
+  popular
 }
 
 
