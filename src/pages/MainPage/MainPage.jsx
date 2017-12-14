@@ -1,12 +1,53 @@
-import React from 'react';
-
-import './MainPage.css';
+import React, {Component} from 'react';
 import MovieGrid from '../../components/MovieGrid/MovieGrid'; 
+import './MainPage.css';
 
+class MainPage extends Component {
+    constructor(props){
+      super();
+      this.state = {
+        movies: null, 
+      };
+    }
 
-const MainPage = (props) => (
-	<MovieGrid /> 
-);
+    nowPlaying = () => {
+        fetch('/api/movies/nowplaying',
+        {
+          method: 'get'
+        })
+          .then(res => res.json())
+          .then(movies => this.setState({movies})) 
+    }
 
+    topRated = () => {
+        fetch('/api/movies/toprated',
+        {
+          method: 'get'
+        })
+          .then(res => res.json())
+          .then(movies => this.setState({movies})) 
+    }
+
+    popular = () => {
+        fetch('/api/movies/popular',
+        {
+          method: 'get'
+        })
+          .then(res => res.json())
+          .then(movies => this.setState({movies})) 
+	}
+	
+    render() {
+		return (
+			<div>
+				<div className="mainButtons"> 
+					<button onClick={this.nowPlaying}>Now Playing</button>&nbsp;&nbsp;
+            		<button onClick={this.topRated}>Top Rated</button>&nbsp;&nbsp;
+            		<button onClick={this.popular}>Popular</button>&nbsp;&nbsp;
+				</div> 
+				<MovieGrid movies={this.state.movies}/> 
+			</div> 
+        )}
+}
 
 export default MainPage; 

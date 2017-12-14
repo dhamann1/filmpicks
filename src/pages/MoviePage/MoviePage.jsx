@@ -1,6 +1,8 @@
 import React, {Component} from 'react';
+import MovieShow from '../../components/MovieShow/MovieShow'
+import './MoviePage.css';
 
-class Movie extends Component {
+class MoviePage extends Component {
     constructor(props){
         super(props);
         this.state = {
@@ -9,7 +11,7 @@ class Movie extends Component {
     }
 
     componentDidMount(){
-        fetch(`/api/movies/${this.props.movie}`,{
+        fetch(`/api/movies/${this.props.match.params.id}`,{
             method: 'get'
         })
         .then(res => res.json())
@@ -23,11 +25,18 @@ class Movie extends Component {
         }
       return (
         <div>
-            hello
-            {this.state.movie ?  <div>loaded {this.state.movie.title}</div> : <h2>Loading</h2>} 
+            <MovieShow movie={this.state.movie}/> 
         </div>  
       )
     }
 }
 
-export default Movie; 
+export default MoviePage; 
+
+
+
+
+
+
+
+

@@ -9,7 +9,7 @@ import NavBar from '../../components/NavBar/NavBar';
 import SignupPage from '../SignupPage/SignupPage';
 import LoginPage from '../LoginPage/LoginPage';
 import MainPage from '../MainPage/MainPage';
-import ShowPage from '../ShowPage/ShowPage';
+import MoviePage from '../MoviePage/MoviePage';
 import UserPage from '../UserPage/UserPage';
 import userService from '../../utils/userService';
  
@@ -54,13 +54,11 @@ class App extends Component {
               <Route exact path='/' render={(props) =>
                 <MainPage
                   {...props}
-
                 />
               }/>
               <Route exact path='/movies/:id' render={(props) => 
-                <ShowPage 
+                <MoviePage 
                   {...props}
-
                 /> 
               }/> 
               <Route exact path='/profile' render={(props) => 
