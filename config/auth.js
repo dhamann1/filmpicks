@@ -1,4 +1,4 @@
-var User = require('../models/User');
+var user = require('../models/user');
 var jwt = require('jsonwebtoken');
 var SECRET = process.env.SECRET;
 
