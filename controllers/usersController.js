@@ -1,4 +1,4 @@
-var User = require('../models/User');
+var User = require('../models/user');
 var jwt = require('jsonwebtoken');
 var SECRET = process.env.SECRET;
 
@@ -47,30 +47,28 @@ function userProfile(req, res) {
 
 
 function like(req, res) {
-  console.log(req.body.user._id);
-  User.findOne({
-    _id: req.body.user._id
-  }, (err, user) => {
-    console.log('a')
+  User.findOne({_id: req.body.user._id}, (err, user) => {
     if (!user.favoriteMovies.some(movie => movie.movieID === req.body.movieID)) {
-      console.log('b')
-      user.favoriteMovies.push({
-        movieTitle: req.body.movieTitle,
-        movieID: req.body.movieID,
-        image: req.body.image
-      })
+      user.favoriteMovies.push({movieTitle: req.body.movieTitle, movieID: req.body.movieID, image: req.body.image})
       user.save(err, data => {
         if (err) {
           res.status(500).json(err)
         }
-        console.log('c')
         res.status(200).json(data)
       })
-    } else {
-      res.status(400).json({error: 'Already saved to wishlist'})
     }
   })
 }
+
+
+function findFavorites(req, res){
+  console.log('Hello');
+  console.log(req.user);
+  console.log(res.json(req.user.favoriteMovies));
+  res.json(req.user.favoriteMovies)
+}
+
+
 
 /*----- Helper Functions -----*/
 
@@ -88,5 +86,6 @@ module.exports = {
   signup,
   login,
   userProfile,
-  like
+  like,
+  findFavorites
 };

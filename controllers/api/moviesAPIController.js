@@ -42,11 +42,22 @@ function showMovie (req, res) {
   })
 }
 
+function search (req, res) {
+
+  // JSON.parse(body)
+  //return res.json(parsedBody.resuls)
+
+}
+
+
+
+
 module.exports = {
   nowPlaying,
   topRated,
   popular,
   showMovie,
-  upcoming
+  upcoming,
+  search
 }
 

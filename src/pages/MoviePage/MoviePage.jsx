@@ -39,7 +39,8 @@ class MoviePage extends Component {
                 'Content-Type': 'application/json'
             }
           })
-          .then(res => console.log('res =', res))
+          .then(res => res.json())
+          .then(this.props.history.push('/'))
         }
     
     render () {

@@ -55,7 +55,12 @@ class App extends Component {
                 <MainPage
                   {...props}
                   handleLogout={this.handleLogout} 
-                  
+                />
+              }/>
+              <Route exact path='/movies' render={(props) =>
+                <MainPage
+                  {...props}
+                  handleLogout={this.handleLogout} 
                 />
               }/>
               <Route exact path='/movies/:id' render={(props) => 
@@ -71,7 +76,7 @@ class App extends Component {
                   {...props}
                   user={this.state.user}
                   handleLogout={this.handleLogout} 
-                  
+          
                 /> 
               }/> 
               <Route exact path='/signup' render={(props) => 
