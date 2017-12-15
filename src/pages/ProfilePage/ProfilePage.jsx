@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import './ProfilePage.css';
-import tokenService from '../../utils/tokenService'
 import ProfileGrid from '../../components/MovieGrid/MovieGrid'
 
 

@@ -1,5 +1,4 @@
 import React from 'react';
-import ReactLoading from 'react-loading';
 import {Link} from 'react-router-dom';
 import './MovieGrid.css';
 import {Container} from 'react-materialize';
