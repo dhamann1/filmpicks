@@ -2,14 +2,14 @@
     text-align: center; 
     opacity: 50%; 
 }
+
 .moviePic  {
     height: 285px; 
 }
 
-.loadingCircle {
+.filmPic {
     text-align: center;
     width: 200px; 
     margin: 0 auto;
-
 }
 

@@ -11,8 +11,6 @@ class MainPage extends Component {
       };
     }
 
-
-
     nowPlaying = () => {
         fetch('/api/movies/nowplaying',
         {
@@ -69,34 +67,32 @@ class MainPage extends Component {
       console.log(this.state.movies);
     }
 
-
     render() {
 		  return (
         <div>
-
-			  <Container> 
-          <form className="form-horizontal" onSubmit={(e) => this.handleSubmit(e)} >
-            <div>
-              <div className="searchfield ">
-                <input className="searchbar" placeholder="Input Movie Title" ref='name'  />
-                  <div className="col-sm-12 text-center">
-                    <button className="btn btn-default">Search</button>&nbsp;&nbsp;
+			    <Container> 
+            <form className="form-horizontal" onSubmit={(e) => this.handleSubmit(e)} >
+              <div>
+                <div className="searchfield ">
+                  <input className="searchbar" placeholder="Input Movie Title" ref='name'  />
+                    <div className="col-sm-12 text-center">
+                      <button className="btn btn-default">Search</button>&nbsp;&nbsp;
+                    </div>
                   </div>
-                </div>
-            </div>
-          </form>
-          <br/>
-				  <div className="mainButtons"> 
-					    <button onClick={this.nowPlaying}>Now Playing</button>&nbsp;&nbsp;
-            	<button onClick={this.topRated}>Top Rated</button>&nbsp;&nbsp;
-            	<button onClick={this.popular}>Popular</button>&nbsp;&nbsp;
-            	<button onClick={this.upcoming}>Upcoming</button>&nbsp;&nbsp;
-				  </div> 
-		  	</Container> 
-        <br/> 
-				  <MovieGrid movies={this.state.movies}/> 
+              </div>
+            </form>
+            <br/>
+				    <div className="mainButtons"> 
+				  	    <button onClick={this.nowPlaying}>Now Playing</button>&nbsp;&nbsp;
+              	<button onClick={this.topRated}>Top Rated</button>&nbsp;&nbsp;
+              	<button onClick={this.popular}>Popular</button>&nbsp;&nbsp;
+              	<button onClick={this.upcoming}>Upcoming</button>&nbsp;&nbsp;
+				    </div> 
+		  	  </Container> 
+          <br/> 
+				    <MovieGrid movies={this.state.movies}/> 
         </div>
-         )}
+    )}
 }
 
 export default MainPage; 

@@ -16,8 +16,8 @@ const MovieGrid = (props) => (
               <Link to={`/movies/${movie.id}`}>{movie.title}</Link><br/></div>)
               :
               <div>
-              <br/><br/><br/><br/><br/><br/>
-              <ReactLoading className="loadingCircle" type="spinningBubbles" color="#4444" />
+               <br/><br/><br/><br/>
+              <img src='https://i.imgur.com/GwAtEUW.png' className="filmPic"/>
               </div>
         }
       </div>

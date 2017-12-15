@@ -4,7 +4,7 @@ import {Navbar, NavItem, Icon} from 'react-materialize'
 import './NavBar.css';
 
 const NavBar = (props) => {
-  var img = <img className="navIcon" src="https://i.imgur.com/nbf8nWS.png" alt="FilmPicks"/>
+  var img = <img className="navIcon" src="https://i.imgur.com/GwAtEUW.png" alt="FilmPicks"/>
   let nav = props.user ?
     <div>
       <Navbar>

@@ -8,7 +8,7 @@ class MoviePage extends Component {
         this.state = {
             movie: null
         }
-    }
+    }  
     componentDidMount(){
         fetch(`/api/movies/${this.props.match.params.id}`,{
             method: 'get'
@@ -16,8 +16,7 @@ class MoviePage extends Component {
         .then(res => res.json())
         .then(movie => this.setState({movie}))  
     }
-
-
+    
     favorite = (event) => {
         event.preventDefault(); 
         fetch('/api/users/like',

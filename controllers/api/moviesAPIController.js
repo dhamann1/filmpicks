@@ -38,7 +38,6 @@ function showMovie (req, res) {
   console.log(req.params.id);
   request(`https://api.themoviedb.org/3/movie/${req.params.id}?api_key=${tmbdKey}&language=en-US&include_adult=false`,function (error, tmbdResponse) {
     var tmbdBody = JSON.parse(tmbdResponse.body);
-    console.log(tmbdBody);
     var movie = tmbdBody;
     res.json(movie);
   })
@@ -46,6 +45,7 @@ function showMovie (req, res) {
 
 
 function search (req, res) {
+  console.log(req.body);
   request(`https://api.themoviedb.org/3/search/movie?api_key=${tmbdKey}&language=en-US&query=${req.body.name}=kl&page=1&include_adult=false`, function (error, tmbdResponse) {
     var tmbdBody = JSON.parse(tmbdResponse.body);
     var movies = tmbdBody.results;
@@ -53,10 +53,6 @@ function search (req, res) {
     res.json(movies);
   })
 }
-
-
-
-
 
 module.exports = {
   nowPlaying,

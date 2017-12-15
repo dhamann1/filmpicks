@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
-import MovieGrid from '../../components/MovieShow/MovieShow'
 import './ProfilePage.css';
 import tokenService from '../../utils/tokenService'
+import ProfileGrid from '../../components/MovieGrid/MovieGrid'
 
 
 
@@ -14,26 +14,19 @@ class ProfilePage extends Component {
         }
     }
  
-
-
-
-
     componentDidMount(){
-        fetch('/api/users/favorites', {
-            headers: new Headers({
-                'Accept': 'application/json',
-                'Content-Type': 'application/json',
-                'Authorization': 'Bearer ' + tokenService.getToken()})
-        })
-        .then(res => res.json())
-        .then(favoriteMovies => this.setState({favoriteMovies}))
-        .catch(err => console.log('err = ', err))
-    }
+        fetch('/api/movies/toprated',
+            {
+              method: 'get'
+            })
+              .then(res => res.json())
+              .then(movies => this.setState({movies})) 
+        } 
     
     render () { 
       return (
         <div>
-        <MovieGrid movies={this.state.movies} />  
+        <ProfileGrid movies={this.state.movies} />  
         </div>  
       )
     }      
