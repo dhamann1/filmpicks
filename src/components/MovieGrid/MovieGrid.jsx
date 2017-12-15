@@ -2,10 +2,11 @@ import React from 'react';
 import ReactLoading from 'react-loading';
 import {Link} from 'react-router-dom';
 import './MovieGrid.css';
+import {Container} from 'react-materialize';
 
 const MovieGrid = (props) => (
   <div>
-    <div className="container">
+    <Container>
       <div className="row">           
         {
           props.movies ? props.movies.map((movie, idx) => 
@@ -20,7 +21,7 @@ const MovieGrid = (props) => (
               </div>
         }
       </div>
-    </div>
+    </Container>
   </div>
 )
 

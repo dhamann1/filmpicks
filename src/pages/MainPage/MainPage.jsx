@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import MovieGrid from '../../components/MovieGrid/MovieGrid'; 
 import './MainPage.css';
+import {Container} from 'react-materialize';
 
 class MainPage extends Component {
     constructor(props){
@@ -9,6 +10,8 @@ class MainPage extends Component {
         movies: null, 
       };
     }
+
+
 
     nowPlaying = () => {
         fetch('/api/movies/nowplaying',
@@ -50,6 +53,7 @@ class MainPage extends Component {
 
     handleSubmit(e){
       e.preventDefault()
+      var result = this.refs.name.value.replace(/ /g, "%")
       const inputField = {
         search: this.refs.name.value
       }
@@ -68,7 +72,9 @@ class MainPage extends Component {
 
     render() {
 		  return (
-			  <div> 
+        <div>
+
+			  <Container> 
           <form className="form-horizontal" onSubmit={(e) => this.handleSubmit(e)} >
             <div>
               <div className="searchfield ">
@@ -79,14 +85,17 @@ class MainPage extends Component {
                 </div>
             </div>
           </form>
+          <br/>
 				  <div className="mainButtons"> 
 					    <button onClick={this.nowPlaying}>Now Playing</button>&nbsp;&nbsp;
             	<button onClick={this.topRated}>Top Rated</button>&nbsp;&nbsp;
             	<button onClick={this.popular}>Popular</button>&nbsp;&nbsp;
             	<button onClick={this.upcoming}>Upcoming</button>&nbsp;&nbsp;
 				  </div> 
+		  	</Container> 
+        <br/> 
 				  <MovieGrid movies={this.state.movies}/> 
-		  	</div> 
+        </div>
          )}
 }
 

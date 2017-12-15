@@ -2,4 +2,9 @@ body {
   margin: 0;
   padding: 0;
   font-family: 'Lato', sans-serif;
+  font: white; 
+  background-image: url('https://i.imgur.com/3jF7B6A.jpg');
+  background-size: 100%; 
+  background-repeat: no-repeat;
+  background-attachment: fixed;  
 }

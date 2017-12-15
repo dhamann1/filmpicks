@@ -1,6 +1,6 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
-import {Navbar, NavItem} from 'react-materialize'
+import {Navbar, NavItem, Icon} from 'react-materialize'
 import './NavBar.css';
 
 const NavBar = (props) => {
@@ -8,15 +8,16 @@ const NavBar = (props) => {
   let nav = props.user ?
     <div>
       <Navbar>
-        <NavItem><Link to='/'>{img}</Link></NavItem>
-        <NavItem><Link to='/movies'>Welcome, {props.user.name}</Link></NavItem>
+        <NavItem><Link to='/'><Icon>{img}</Icon></Link></NavItem>
+        <NavItem>Welcome, {props.user.name}</NavItem>
         <NavItem><Link to='/profile'>♥ Favorites </Link></NavItem> 
         <NavItem onClick={props.handleLogout}>Log Out</NavItem>
       </Navbar>
     </div>
   :
     <div>
-        <Navbar brand={img} className='red lighten-1' right>
+        <Navbar>
+        <NavItem><Link to='/'>{img}</Link></NavItem>
         <NavItem><Link to='/login'>Log In </Link></NavItem>
         <NavItem><Link to='/signup'>Sign Up</Link></NavItem>
       </Navbar>

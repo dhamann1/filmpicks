@@ -3,16 +3,22 @@ import MovieGrid from '../../components/MovieShow/MovieShow'
 import './ProfilePage.css';
 import tokenService from '../../utils/tokenService'
 
+
+
 class ProfilePage extends Component {
     constructor(props){
         super(props);
         this.state = {
+            movies: null, 
             favoriteMovies: null
         }
     }
  
+
+
+
+
     componentDidMount(){
-        console.log(this.props.user)
         fetch('/api/users/favorites', {
             headers: new Headers({
                 'Accept': 'application/json',
@@ -27,10 +33,10 @@ class ProfilePage extends Component {
     render () { 
       return (
         <div>
-            <MovieGrid movies={this.state.favoriteMovies}/> 
+        <MovieGrid movies={this.state.movies} />  
         </div>  
       )
-    }
+    }      
 }
 
 export default ProfilePage; 

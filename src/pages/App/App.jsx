@@ -12,7 +12,6 @@ import MainPage from '../MainPage/MainPage';
 import MoviePage from '../MoviePage/MoviePage';
 import ProfilePage from '../ProfilePage/ProfilePage';
 import userService from '../../utils/userService';
-import WelcomePage from '../WelcomePage/WelcomePage';
  
 class App extends Component {
   constructor(props){
@@ -53,9 +52,9 @@ class App extends Component {
             />
             <Switch>
               <Route exact path='/' render={(props) =>
-                <WelcomePage
+                <MainPage 
                   {...props}
-                  handleLogout={this.handleLogout} 
+                  handleLogout={this.handleLogout}                   
                 />
               }/>
               <Route exact path='/movies' render={(props) =>

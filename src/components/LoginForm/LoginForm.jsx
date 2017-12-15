@@ -1,6 +1,8 @@
 import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
 import userService from '../../utils/userService';
+import './LoginForm.css';
+import {Button} from 'react-materialize';
 
 class LoginForm extends Component {
   constructor(props) {
@@ -13,7 +15,6 @@ class LoginForm extends Component {
 
   handleChange = (field, e) => {
     this.setState({
-      // Using ES2015 Computed Property Names
       [field]: e.target.value
     });
   }
@@ -25,7 +26,6 @@ class LoginForm extends Component {
         this.props.handleLogin();
         this.props.history.push('/');
       })
-      // invalid credentials - don't alert in YOUR app :)
       .catch(err => alert('Invalid Credentials!'));
   }
 
@@ -46,8 +46,8 @@ class LoginForm extends Component {
           </div>
           <div className="form-group">
             <div className="col-sm-12 text-center">
-              <button className="btn btn-default">Log In</button>&nbsp;&nbsp;&nbsp;
-              <Link to='/'>Cancel</Link>
+              <Button>Log In</Button>&nbsp;&nbsp;&nbsp;
+              <Link to='/'>Cancel </Link>
             </div>
           </div>
         </form>

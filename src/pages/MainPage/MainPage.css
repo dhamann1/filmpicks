@@ -1,0 +1,12 @@
+.container {
+    text-align: center; 
+}
+
+input {
+    text-align: center; 
+}
+
+
+input, select, textarea{
+    color: white;
+}
