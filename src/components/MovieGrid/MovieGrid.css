@@ -1,5 +1,6 @@
 .container .row {
     text-align: center; 
+    opacity: 50%; 
 }
 .moviePic  {
     height: 285px; 

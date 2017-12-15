@@ -23,29 +23,26 @@ class MoviePage extends Component {
 
 
     favorite = (event) => {
-        console.log(this.props.user);
         console.log('favorite button gets hit');
         event.preventDefault(); 
         fetch('/api/users/like',
         {
-          method: 'POST',
-          body: JSON.stringify({
-            movieTitle: this.state.movie.title, 
-            movieID: this.state.movie.id,
-            image: `https://image.tmdb.org/t/p/w185/${this.state.movie.poster_path}`,
-            user: this.props.user
-        }),
-          headers: {
-              'Accept': 'application/json',
-              'Content-Type': 'application/json'
+            method: 'POST',
+            body: JSON.stringify({
+                movieTitle: this.state.movie.title, 
+                movieID: this.state.movie.id,
+                image: `https://image.tmdb.org/t/p/w185/${this.state.movie.poster_path}`,
+                user: this.props.user
+            }),
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
             }
           })
-          .then(res => res.json())
-          .then(this.props.history.push('/'))
+          .then(res => console.log('res =', res))
         }
     
     render () {
-        console.log('this.state', this.state)
         if (this.state.movie) {
             console.log('true')
         }

@@ -14,7 +14,7 @@ router.post('/like', usersCtrl.like);
 
 
 /*---------- Protected Routes ----------*/
-
+// new protected route here with checkAuth middleware function
 
 
 

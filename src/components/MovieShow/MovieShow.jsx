@@ -1,7 +1,7 @@
 import React from 'react';
 import './MovieShow.css';
 import ReactLoading from 'react-loading';
-import {Button, Icon} from 'react-materialize';
+import {Button} from 'react-materialize';
 
 
 const MovieShow = (props) => {

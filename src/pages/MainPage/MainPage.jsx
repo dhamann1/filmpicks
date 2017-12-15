@@ -38,7 +38,15 @@ class MainPage extends Component {
   }
 
 
-
+    upcoming = () => {
+      fetch('/api/movies/upcoming',
+      {
+        method: 'get'
+      })
+        .then(res => res.json())
+        .then(movies => this.setState({movies})) 
+        .catch(err => console.log('err =', err))
+    } 
 
     render() {
 		  return (
@@ -47,6 +55,7 @@ class MainPage extends Component {
 					        <button onClick={this.nowPlaying}>Now Playing</button>&nbsp;&nbsp;
             		  <button onClick={this.topRated}>Top Rated</button>&nbsp;&nbsp;
             		  <button onClick={this.popular}>Popular</button>&nbsp;&nbsp;
+            		  <button onClick={this.upcoming}>Upcoming</button>&nbsp;&nbsp;
 				  </div> 
 				  <MovieGrid movies={this.state.movies}/> 
 		  	  </div> 

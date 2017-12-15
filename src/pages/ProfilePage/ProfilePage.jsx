@@ -5,7 +5,7 @@ import './ProfilePage.css';
 
 const ProfilePage = (props) => {
     return (
-        <h1> {props.user.name} </h1> 
+        <h1> User Page </h1> 
     )
 }
 

@@ -8,7 +8,7 @@ const NavBar = (props) => {
   let nav = props.user ?
     <div>
         <Navbar brand={img} className='red lighten-1' right>
-        <NavItem><Link to='/profile'>Welcome, {props.user.name}</Link></NavItem>
+        <NavItem>Welcome, {props.user.name}</NavItem>
         <NavItem><Link to='/profile'>♥ Favorites </Link></NavItem> 
         <NavItem onClick={props.handleLogout}>Log Out</NavItem>
       </Navbar>

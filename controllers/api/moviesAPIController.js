@@ -11,7 +11,7 @@ function nowPlaying (req, res) {
 }
 
 function topRated (req, res) {
-  request(`https://api.themoviedb.org/3/movie/top_rated?api_key=${tmbdKey}&language=en-US&`,function (error, tmbdResponse) {
+  request(`https://api.themoviedb.org/3/movie/top_rated?api_key=${tmbdKey}&language=en-US`,function (error, tmbdResponse) {
     var tmbdBody = JSON.parse(tmbdResponse.body)
     var movies = tmbdBody.results;
     res.json(movies);
@@ -19,7 +19,15 @@ function topRated (req, res) {
 }
 
 function popular (req, res) {
-  request(`https://api.themoviedb.org/3/movie/popular?api_key=${tmbdKey}&language=en-US&page=1`,function (error, tmbdResponse) {
+  request(`https://api.themoviedb.org/3/movie/popular?api_key=${tmbdKey}&language=en-US`,function (error, tmbdResponse) {
+    var tmbdBody = JSON.parse(tmbdResponse.body)
+    var movies = tmbdBody.results;
+    res.json(movies);
+  })
+}
+
+function upcoming (req, res) {
+  request(`https://api.themoviedb.org/3/movie/upcoming?api_key=${tmbdKey}&language=en-US`,function (error, tmbdResponse) {
     var tmbdBody = JSON.parse(tmbdResponse.body)
     var movies = tmbdBody.results;
     res.json(movies);
@@ -34,30 +42,11 @@ function showMovie (req, res) {
   })
 }
 
-
-function search (req, res){
-  console.log("body =", body) 
-  var parseBody = JSON.parse(body)
-  return res.json(parseBody.results)
-  request(`https://api.themoviedb.org/3/movie/${req.params.id}?api_key=${tmbdKey}&language=en-US`,function (error, tmbdResponse) {
-    var tmbdBody = JSON.parse(tmbdResponse.body);
-    var movie = tmbdBody;
-    res.json(movie);
-  })
-}
-
 module.exports = {
   nowPlaying,
   topRated,
   popular,
   showMovie,
-  search
+  upcoming
 }
 
-
-
-// Movie.find({movieId: id}, (error, comments) => {
-//   response.comments = comments;
-//   res.json(response);
-// })
-// res.json(response);
