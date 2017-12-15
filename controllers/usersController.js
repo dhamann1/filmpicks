@@ -41,11 +41,6 @@ function login(req, res) {
 }
 
 
-function userProfile(req, res) {
-  console.log('hey')
-}
-
-
 function like(req, res) {
   User.findOne({_id: req.body.user._id}, (err, user) => {
     if (!user.favoriteMovies.some(movie => movie.movieID === req.body.movieID)) {
@@ -61,9 +56,9 @@ function like(req, res) {
 }
 
 
-function findFavorites(req, res, ){
-  console.log(res.user)
-  res.json(req.user.favoriteMovies)
+function findFavorites(req, res){
+  User.findById(req.user._id).then(user => res.json(user.favoriteMovies))
+  // res.json(req.user.favoriteMovies)
 }
 
 
@@ -83,7 +78,6 @@ function createJWT(user) {
 module.exports = {
   signup,
   login,
-  userProfile,
   like,
   findFavorites
 };

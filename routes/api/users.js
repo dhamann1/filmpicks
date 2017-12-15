@@ -3,7 +3,6 @@ var router = express.Router();
 var User = require('../../models/user');
 var usersCtrl = require('../../controllers/usersController');
 
-router.get('/profile', usersCtrl.userProfile); 
 
 router.get('/favorites', usersCtrl.findFavorites)
 

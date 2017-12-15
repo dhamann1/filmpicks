@@ -35,7 +35,6 @@ function upcoming (req, res) {
 }
 
 function showMovie (req, res) {
-  console.log(req.params.id);
   request(`https://api.themoviedb.org/3/movie/${req.params.id}?api_key=${tmbdKey}&language=en-US&include_adult=false`,function (error, tmbdResponse) {
     var tmbdBody = JSON.parse(tmbdResponse.body);
     var movie = tmbdBody;
@@ -48,7 +47,6 @@ function search (req, res) {
   request(`https://api.themoviedb.org/3/search/movie?api_key=${tmbdKey}&language=en-US&query=${req.body.name}=kl&page=1&include_adult=false`, function (error, tmbdResponse) {
     var tmbdBody = JSON.parse(tmbdResponse.body);
     var movies = tmbdBody.results;
-    console.log(movies);
     res.json(movies);
   })
 }

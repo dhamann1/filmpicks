@@ -64,7 +64,6 @@ class MainPage extends Component {
       })
       .then(res => res.json())
       .then(movies => this.setState({movies}))
-      console.log(this.state.movies);
     }
 
     render() {
