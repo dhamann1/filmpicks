@@ -16,7 +16,7 @@ const MovieGrid = (props) => (
               :
               <div>
               <br/><br/><br/><br/><br/><br/>
-              <ReactLoading className="loadingCircle" type="spinningBubbles" color="#4444" height='100' width='100'/>
+              <ReactLoading className="loadingCircle" type="spinningBubbles" color="#4444" />
               </div>
         }
       </div>

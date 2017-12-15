@@ -12,12 +12,13 @@ import MainPage from '../MainPage/MainPage';
 import MoviePage from '../MoviePage/MoviePage';
 import ProfilePage from '../ProfilePage/ProfilePage';
 import userService from '../../utils/userService';
+import WelcomePage from '../WelcomePage/WelcomePage';
  
 class App extends Component {
   constructor(props){
     super();
     this.state = {
-      user: null,
+      user: null
     };
   }
 
@@ -52,7 +53,7 @@ class App extends Component {
             />
             <Switch>
               <Route exact path='/' render={(props) =>
-                <MainPage
+                <WelcomePage
                   {...props}
                   handleLogout={this.handleLogout} 
                 />

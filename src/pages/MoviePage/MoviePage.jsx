@@ -9,10 +9,6 @@ class MoviePage extends Component {
             movie: null
         }
     }
-
-
-    
-    
     componentDidMount(){
         fetch(`/api/movies/${this.props.match.params.id}`,{
             method: 'get'
@@ -23,7 +19,6 @@ class MoviePage extends Component {
 
 
     favorite = (event) => {
-        console.log('favorite button gets hit');
         event.preventDefault(); 
         fetch('/api/users/like',
         {
@@ -44,9 +39,6 @@ class MoviePage extends Component {
         }
     
     render () {
-        if (this.state.movie) {
-            console.log('true')
-        }
       return (
         <div>
             <MovieShow movie={this.state.movie} favorite={this.favorite}/> 

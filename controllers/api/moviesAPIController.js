@@ -35,19 +35,24 @@ function upcoming (req, res) {
 }
 
 function showMovie (req, res) {
+  console.log(req.params.id);
   request(`https://api.themoviedb.org/3/movie/${req.params.id}?api_key=${tmbdKey}&language=en-US`,function (error, tmbdResponse) {
     var tmbdBody = JSON.parse(tmbdResponse.body);
+    console.log(tmbdBody);
     var movie = tmbdBody;
     res.json(movie);
   })
 }
 
+
 function search (req, res) {
-
-  // JSON.parse(body)
-  //return res.json(parsedBody.resuls)
-
+  request(`https://api.themoviedb.org/3/search/movie?api_key=${tmbdKey}&language=en-US&query=${req.body.name}=kl&page=1&include_adult=false`, function (error, tmbdResponse) {
+    var tmbdBody = JSON.parse(tmbdResponse.body);
+    var movies = tmbdBody.results;
+    res.json(movies);
+  })
 }
+
 
 
 

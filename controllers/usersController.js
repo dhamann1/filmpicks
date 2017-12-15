@@ -1,6 +1,6 @@
 var User = require('../models/user');
 var jwt = require('jsonwebtoken');
-var SECRET = process.env.SECRET;
+const SECRET = process.env.SECRET;
 
 function signup(req, res) {
   var user = new User(req.body);
@@ -50,7 +50,7 @@ function like(req, res) {
   User.findOne({_id: req.body.user._id}, (err, user) => {
     if (!user.favoriteMovies.some(movie => movie.movieID === req.body.movieID)) {
       user.favoriteMovies.push({movieTitle: req.body.movieTitle, movieID: req.body.movieID, image: req.body.image})
-      user.save(err, data => {
+      user.save((err, data) => {
         if (err) {
           res.status(500).json(err)
         }
@@ -61,10 +61,8 @@ function like(req, res) {
 }
 
 
-function findFavorites(req, res){
-  console.log('Hello');
-  console.log(req.user);
-  console.log(res.json(req.user.favoriteMovies));
+function findFavorites(req, res, ){
+  console.log(res.user)
   res.json(req.user.favoriteMovies)
 }
 

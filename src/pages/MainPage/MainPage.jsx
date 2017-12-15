@@ -48,49 +48,45 @@ class MainPage extends Component {
         .catch(err => console.log('err =', err))
     } 
 
-    handleSubmit(e) {
+    handleSubmit(e){
       e.preventDefault()
-      const formData = {
+      const inputField = {
         search: this.refs.name.value
       }
-      console.log(formData.search);
-      fetch('specified route', {
+      fetch('/api/movies/search', {
         method: 'POST',
         headers: new Headers({
           'Content-Type': 'application/json',
         }),
-        body: JSON.stringify({name: formData.search})
+        body: JSON.stringify({name: inputField.search}) 
       })
-      .then (res => res.json())
-      .then(movies => this.setState({movies}))  
-      console.log(this.state.movies)
+      .then(res => res.json())
+      .then(movies => this.setState({movies}))
+      console.log(this.state.movies);
     }
-
-
-
 
 
     render() {
 		  return (
 			  <div> 
           <form className="form-horizontal" onSubmit={(e) => this.handleSubmit(e)} >
-        <div className="form-group">
-        <div className="col-sm-12">
-          <input type="name" className="form-control" placeholder="name" value={this.state.name} onChange={(e) => this.handleChange('name', e)} />
-          <div className="col-sm-12 text-center">
-              <button className="btn btn-default">Search</button>&nbsp;&nbsp;
+            <div>
+              <div className="searchfield ">
+                <input className="searchbar" placeholder="Input Movie Title" ref='name'  />
+                  <div className="col-sm-12 text-center">
+                    <button className="btn btn-default">Search</button>&nbsp;&nbsp;
+                  </div>
+                </div>
             </div>
-        </div>
-        </div>
-      </form>
+          </form>
 				  <div className="mainButtons"> 
-					        <button onClick={this.nowPlaying}>Now Playing</button>&nbsp;&nbsp;
-            		  <button onClick={this.topRated}>Top Rated</button>&nbsp;&nbsp;
-            		  <button onClick={this.popular}>Popular</button>&nbsp;&nbsp;
-            		  <button onClick={this.upcoming}>Upcoming</button>&nbsp;&nbsp;
+					    <button onClick={this.nowPlaying}>Now Playing</button>&nbsp;&nbsp;
+            	<button onClick={this.topRated}>Top Rated</button>&nbsp;&nbsp;
+            	<button onClick={this.popular}>Popular</button>&nbsp;&nbsp;
+            	<button onClick={this.upcoming}>Upcoming</button>&nbsp;&nbsp;
 				  </div> 
 				  <MovieGrid movies={this.state.movies}/> 
-		  	  </div> 
+		  	</div> 
          )}
 }
 
