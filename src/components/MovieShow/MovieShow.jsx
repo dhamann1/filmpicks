@@ -16,7 +16,7 @@ const MovieShow = (props) => {
                     <div>Score of {props.movie.vote_average} out of {props.movie.vote_count} Reviews </div><br/> 
                     <div> Released on: {props.movie.release_date}</div> 
                     <img className="picShow" src={`https://image.tmdb.org/t/p/w500/${props.movie.poster_path}`} alt='Movie Poster'/><br/>
-                    <Modal header='Modal Header'trigger={<Button>Overview</Button>}> <p>{props.movie.overview}</p></Modal>
+                    <Modal header={props.movie.title} trigger={<Button>Overview</Button>}> <p>{props.movie.overview}</p></Modal>
                     <br/><br/> 
                     <Button className="waves-effect waves-light btn"onClick={props.favorite}>Add Favorite </Button>    
                 </div> 
