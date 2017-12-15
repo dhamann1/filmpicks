@@ -37,7 +37,18 @@ function userProfile(req, res){
 
 
 function like (req,res){
-  console.log(req.body);
+  console.log(req.body.user._id);
+  User.findOne({_id: req.body.user._id}, (err, user) => {
+    if (!user.favoriteMovies.some(movie => movie.movieID === req.body.movieID)) {
+      user.favoriteMovies.push({movieTitle: req.body.movieTitle, movieID: req.body.movieID, image: req.body.image})
+      user.save(err, data => {
+        if (err) {
+          res.status(500).send(err)
+        }
+        res.status(200).send(data)
+      }) 
+   }
+ })
 }
 
 /*----- Helper Functions -----*/

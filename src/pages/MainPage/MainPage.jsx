@@ -36,13 +36,13 @@ class MainPage extends Component {
           .then(res => res.json())
           .then(movies => this.setState({movies})) 
   }
-  
+
 
 
 
     render() {
 		  return (
-			  <div>
+			  <div> 
 				  <div className="mainButtons"> 
 					        <button onClick={this.nowPlaying}>Now Playing</button>&nbsp;&nbsp;
             		  <button onClick={this.topRated}>Top Rated</button>&nbsp;&nbsp;
@@ -54,3 +54,16 @@ class MainPage extends Component {
 }
 
 export default MainPage; 
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -35,11 +35,23 @@ function showMovie (req, res) {
 }
 
 
+function search (req, res){
+  console.log("body =", body) 
+  var parseBody = JSON.parse(body)
+  return res.json(parseBody.results)
+  request(`https://api.themoviedb.org/3/movie/${req.params.id}?api_key=${tmbdKey}&language=en-US`,function (error, tmbdResponse) {
+    var tmbdBody = JSON.parse(tmbdResponse.body);
+    var movie = tmbdBody;
+    res.json(movie);
+  })
+}
+
 module.exports = {
   nowPlaying,
   topRated,
   popular,
-  showMovie
+  showMovie,
+  search
 }
 
 

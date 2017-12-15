@@ -6,18 +6,13 @@ var Schema = mongoose.Schema;
 const SALT_ROUNDS = 6;
 
 
-var movieSchema = new Schema ({
-  movieTitle: String, 
-  movieID: Number,
-  image: String,     
-});
 
 
 var userSchema = new Schema({
   name: String,
   email: {type: String, required: true, lowercase: true, unique: true},
   password: String,
-  favoriteMovies: [movieSchema], 
+  favoriteMovies: [], 
 }, {
   timestamps: true
 });

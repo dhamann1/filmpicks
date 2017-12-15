@@ -61,6 +61,7 @@ class App extends Component {
               <Route exact path='/movies/:id' render={(props) => 
                 <MoviePage 
                   {...props}
+                  user={this.state.user}
                   handleLogout={this.handleLogout} 
                   
                 /> 

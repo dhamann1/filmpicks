@@ -1,6 +1,7 @@
 import React from 'react';
 import './MovieShow.css';
 import ReactLoading from 'react-loading';
+import {Button, Icon} from 'react-materialize';
 
 
 const MovieShow = (props) => {
@@ -9,9 +10,9 @@ const MovieShow = (props) => {
             {
             props.movie ?
             <div> 
-                <h4>{props.movie.title}</h4> 
-                <button onClick={props.favorite}>You like this shit?</button>
-                <img className="picShow" src={`https://image.tmdb.org/t/p/w500/${props.movie.poster_path}`} alt='Movie Poster'/>
+                <h4>{props.movie.title}</h4><br/> 
+                <img className="picShow" src={`https://image.tmdb.org/t/p/w500/${props.movie.poster_path}`} alt='Movie Poster'/><br/>
+                <Button className="waves-effect waves-light btn"onClick={props.favorite}>🎬 Add Favorite 🎬</Button>
             </div>
             : 
             <div>
