@@ -51,19 +51,16 @@ class MainPage extends Component {
 
     handleSubmit(e){
       e.preventDefault()
+      var result = this.refs.name.value.replace(/ /g, "%")
       const inputField = {
         search: this.refs.name.value
-      }
-      var result = this.refs.name.value.replace(/ /g, "%")
-      var cleanInput = {
-        search: result
       }
       fetch('/api/movies/search', {
         method: 'POST',
         headers: new Headers({
           'Content-Type': 'application/json',
         }),
-        body: JSON.stringify({name: cleanInput.search}) 
+        body: JSON.stringify({name: inputField.search}) 
       })
       .then(res => res.json())
       .then(movies => this.setState({movies}))

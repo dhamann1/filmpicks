@@ -16,7 +16,7 @@ const MovieGrid = (props) => (
               :
               <div>
                <br/><br/><br/><br/>
-              <img src='https://i.imgur.com/GwAtEUW.png' className="filmPic"/>
+              <img src='https://i.imgur.com/GwAtEUW.png' alt="" className="filmPic"/>
               </div>
         }
       </div>
