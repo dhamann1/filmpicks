@@ -1,4 +1,4 @@
-# Don't Think, Just Eat 
+# FilmPicks 
 > FilmPicks lets users explore a vast community built movie database known as The Movie Database (TMDb) to discover new movies. 
 > 
 ><img src="https://imgur.com/Voygu1h.jpg">
