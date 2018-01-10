@@ -7,6 +7,15 @@ const API = {
             })
           .then(res => res.json())
         )
+    },
+    fetchtopRated: function(){
+        return(
+            fetch('/api/movies/toprated',
+            {
+                method: 'get'
+            })
+          .then(res => res.json())
+        )
     }
 } 
 

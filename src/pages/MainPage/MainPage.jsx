@@ -15,16 +15,15 @@ class MainPage extends Component {
     nowPlaying = () => {
       API.fetchNowPlaying()
         .then(movies => this.setState(
-          {movies}))
+          {movies}
+        ))
     }
 
     topRated = () => {
-        fetch('/api/movies/toprated',
-        {
-          method: 'get'
-        })
-          .then(res => res.json())
-          .then(movies => this.setState({movies})) 
+      API.fetchtopRated()
+      .then(movies => this.setState(
+        {movies}
+      ))
     }
 
     popular = () => {
