@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import MovieGrid from '../../components/MovieGrid/MovieGrid'; 
 import './MainPage.css';
 import {Container} from 'react-materialize';
+import API from '../../utils/tmbdAPI';
 
 class MainPage extends Component {
     constructor(props){
@@ -12,12 +13,9 @@ class MainPage extends Component {
     }
 
     nowPlaying = () => {
-        fetch('/api/movies/nowplaying',
-        {
-          method: 'get'
-        })
-          .then(res => res.json())
-          .then(movies => this.setState({movies})) 
+      API.fetchNowPlaying()
+        .then(movies => this.setState(
+          {movies}))
     }
 
     topRated = () => {
