@@ -6,7 +6,7 @@ function nowPlaying (req, res) {
   request(`https://api.themoviedb.org/3/movie/now_playing?api_key=${tmbdKey}&language=en-US&include_adult=false`,function (error, tmbdResponse) {
     var tmbdBody = JSON.parse(tmbdResponse.body)
     var movies = tmbdBody.results;
-    res.json(movies);
+    // res.json(movies);
   })
 }
 

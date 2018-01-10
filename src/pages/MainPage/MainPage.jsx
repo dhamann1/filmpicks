@@ -20,28 +20,25 @@ class MainPage extends Component {
     }
 
     topRated = () => {
-      API.fetchtopRated()
+      API.fetchTopRated()
       .then(movies => this.setState(
         {movies}
       ))
     }
 
     popular = () => {
-      API.fetchpopular()
+      API.fetchPopular()
       .then(movies => this.setState(
         {movies}
       ))
     }
 
     upcoming = () => {
-      fetch('/api/movies/upcoming',
-      {
-        method: 'get'
-      })
-        .then(res => res.json())
-        .then(movies => this.setState({movies})) 
-        .catch(err => console.log('err =', err))
-    } 
+      API.fetchUpcoming()
+      .then(movies => this.setState(
+        {movies}
+      ))
+    }
 
     handleSubmit(e){
       e.preventDefault()

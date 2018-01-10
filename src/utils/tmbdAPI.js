@@ -9,7 +9,7 @@ const API = {
         )
     },
 
-    fetchtopRated: function(){
+    fetchTopRated: function(){
         return(
             fetch('/api/movies/toprated',
             {
@@ -19,9 +19,19 @@ const API = {
         )
     },
 
-    fetchpopular: function(){
+    fetchPopular: function(){
         return(
             fetch('/api/movies/popular',
+            {
+                method: 'get'
+            })
+          .then(res => res.json())
+        )
+    },
+
+    fetchUpcoming: function(){
+        return(
+            fetch('/api/movies/upcoming',
             {
                 method: 'get'
             })
