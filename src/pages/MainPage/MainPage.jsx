@@ -27,14 +27,11 @@ class MainPage extends Component {
     }
 
     popular = () => {
-        fetch('/api/movies/popular',
-        {
-          method: 'get'
-        })
-          .then(res => res.json())
-          .then(movies => this.setState({movies})) 
-  }
-
+      API.fetchpopular()
+      .then(movies => this.setState(
+        {movies}
+      ))
+    }
 
     upcoming = () => {
       fetch('/api/movies/upcoming',
