@@ -58,7 +58,6 @@ function like(req, res) {
 
 function findFavorites(req, res){
   User.findById(req.user._id).then(user => res.json(user.favoriteMovies))
-  // res.json(req.user.favoriteMovies)
 }
 
 

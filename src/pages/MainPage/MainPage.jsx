@@ -42,9 +42,9 @@ class MainPage extends Component {
 
     handleSubmit(e){
       e.preventDefault()
-      var result = this.refs.name.value.replace(/ /g, "%")
+      var result = this.refs.name.value.trim().replace(/ /g, "%20")
       const inputField = {
-        search: this.refs.name.value
+        search: result
       }
       fetch('/api/movies/search', {
         method: 'POST',
@@ -64,7 +64,7 @@ class MainPage extends Component {
             <form className="form-horizontal" onSubmit={(e) => this.handleSubmit(e)} >
               <div>
                 <div className="searchfield ">
-                  <input className="searchbar" placeholder="Input Movie Title" ref='name'  />
+                  <input className="searchbar" placeholder="Search (e.g. 'Star Wars')" ref='name'  />
                     <div className="col-sm-12 text-center">
                       <button className="btn btn-default">Search</button>&nbsp;&nbsp;
                     </div>

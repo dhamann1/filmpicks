@@ -5,7 +5,7 @@ import {Button, Modal} from 'react-materialize';
 
 
 const MovieShow = (props) => {
-    console.log(props.movie);
+  console.log(props.movie);
     return (
         <div className="movieBox"> 
             {

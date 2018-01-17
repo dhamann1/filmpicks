@@ -1,12 +1,11 @@
 var request = require('request-promise-native');
 var tmbdKey = process.env.TMBDKEY; 
 
-
 function nowPlaying (req, res) {
   request(`https://api.themoviedb.org/3/movie/now_playing?api_key=${tmbdKey}&language=en-US&include_adult=false`,function (error, tmbdResponse) {
     var tmbdBody = JSON.parse(tmbdResponse.body)
     var movies = tmbdBody.results;
-    // res.json(movies);
+    res.json(movies);
   })
 }
 
@@ -44,14 +43,14 @@ function showMovie (req, res) {
 
 
 function search (req, res) {
-  request(`https://api.themoviedb.org/3/search/movie?api_key=${tmbdKey}&language=en-US&query=${req.body.name}=kl&page=1&include_adult=false`, function (error, tmbdResponse) {
+  request(`https://api.themoviedb.org/3/search/movie?query=${req.body.name}&api_key=${tmbdKey}`, function (error, tmbdResponse) {
     var tmbdBody = JSON.parse(tmbdResponse.body);
     var movies = tmbdBody.results;
     res.json(movies);
   })
 }
 
-module.exports = {
+module.exports = {  
   nowPlaying,
   topRated,
   popular,
