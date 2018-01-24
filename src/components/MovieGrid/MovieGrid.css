@@ -1,10 +1,13 @@
-.container .row {
-    text-align: center; 
+.container {
     opacity: 50%; 
+    margin: 0 auto;
 }
 
+
+
 .moviePic  {
-    height: 285px; 
+    width: 342px; 
+    height: 513px;
 }
 
 .filmPic {
@@ -12,4 +15,14 @@
     width: 200px; 
     margin: 0 auto;
 }
+
+a {
+    color: white; 
+}
+
+.row .col.l6 {
+    margin-top: 5%;
+}
+
+
 

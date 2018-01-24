@@ -61,6 +61,7 @@ class MainPage extends Component {
 		  return (
         <div>
 			    <Container> 
+          <div className="formInput"> 
             <form className="form-horizontal" onSubmit={(e) => this.handleSubmit(e)} >
               <div>
                 <div className="searchfield ">
@@ -71,6 +72,7 @@ class MainPage extends Component {
                   </div>
               </div>
             </form>
+            </div>
             <br/>
 				    <div className="mainButtons"> 
 				  	    <button onClick={this.nowPlaying}>Now Playing</button>&nbsp;&nbsp;

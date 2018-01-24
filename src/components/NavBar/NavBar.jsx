@@ -4,13 +4,13 @@ import {Navbar, NavItem, Icon} from 'react-materialize'
 import './NavBar.css';
 
 const NavBar = (props) => {
-  var img = <img className="navIcon" src="https://i.imgur.com/GwAtEUW.png" alt="FilmPicks"/>
+  let img = <img className="navIcon" src="https://i.imgur.com/GwAtEUW.png" alt="FilmPicks"/>
   let nav = props.user ?
     <div>
       <Navbar>
         <NavItem><Link to='/'><Icon>{img}</Icon></Link></NavItem>
         <NavItem>Welcome, {props.user.name}</NavItem>
-        <NavItem><Link to='/profile'>♥ Favorites </Link></NavItem> 
+        <NavItem><Link to='/profile'>♥ Favorites</Link></NavItem> 
         <NavItem onClick={props.handleLogout}>Log Out</NavItem>
       </Navbar>
     </div>
@@ -18,7 +18,7 @@ const NavBar = (props) => {
     <div>
         <Navbar>
         <NavItem><Link to='/'>{img}</Link></NavItem>
-        <NavItem><Link to='/login'>Log In </Link></NavItem>
+        <NavItem><Link to='/login'>Log In</Link></NavItem>
         <NavItem><Link to='/signup'>Sign Up</Link></NavItem>
       </Navbar>
     </div>
