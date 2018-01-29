@@ -1,32 +1,55 @@
 import React from 'react';
-import {Link} from 'react-router-dom';
-import {Navbar, NavItem, Icon} from 'react-materialize'
+import { Link } from 'react-router-dom';
 import './NavBar.css';
+import { Nav, Navbar, NavItem } from 'react-bootstrap';
+import { LinkContainer } from 'react-router-bootstrap';
+
+
+
 
 const NavBar = (props) => {
-  let img = <img className="navIcon" src="https://i.imgur.com/GwAtEUW.png" alt="FilmPicks"/>
   let nav = props.user ?
+    <Navbar inverse collapseOnSelect>
+      <Navbar.Header>
+        <Navbar.Brand>
+          <Link to='/'>FilmPicks</Link>
+        </Navbar.Brand>
+        <Navbar.Toggle />
+      </Navbar.Header>
+      <Navbar.Collapse>
+        <Nav>
+          <NavItem>Welcome, {props.user.name}</NavItem>
+        </Nav>
+        <Nav>
+          <LinkContainer to='/profile'><NavItem>❤ Watchlist</NavItem></LinkContainer>
+        </Nav>
+        <Nav>
+          <NavItem onClick={props.handleLogout}>Log Out</NavItem>
+        </Nav>
+      </Navbar.Collapse>
+    </Navbar>
+    :
+    <Navbar inverse collapseOnSelect>
+      <Navbar.Header>
+        <Navbar.Brand>
+          <Link to='/'>FilmPicks</Link>
+        </Navbar.Brand>
+        <Navbar.Toggle />
+      </Navbar.Header>
+      <Navbar.Collapse>
+        <Nav>
+          <LinkContainer to='/login'><NavItem>Log In</NavItem></LinkContainer>
+        </Nav>
+        <Nav>
+          <LinkContainer to='/signup'><NavItem>Sign Up</NavItem></LinkContainer>
+        </Nav>
+      </Navbar.Collapse>
+    </Navbar>
+  return (
     <div>
-      <Navbar>
-        <NavItem><Link to='/'><Icon>{img}</Icon></Link></NavItem>
-        <NavItem>Welcome, {props.user.name}</NavItem>
-        <NavItem><Link to='/profile'>♥ Favorites</Link></NavItem> 
-        <NavItem onClick={props.handleLogout}>Log Out</NavItem>
-      </Navbar>
+      {nav}
     </div>
-  :
-    <div>
-        <Navbar>
-        <NavItem><Link to='/'>{img}</Link></NavItem>
-        <NavItem><Link to='/login'>Log In</Link></NavItem>
-        <NavItem><Link to='/signup'>Sign Up</Link></NavItem>
-      </Navbar>
-    </div>
-    return (
-      <div>
-          {nav}
-      </div>    
-    ) 
+  )
 }
 
 export default NavBar;

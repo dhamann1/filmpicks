@@ -1,8 +1,8 @@
-import React, {Component} from 'react';
-import {Link} from 'react-router-dom';
+import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import userService from '../../utils/userService';
 import './LoginForm.css';
-import {Button} from 'react-materialize';
+import { Button } from 'react-materialize';
 
 class LoginForm extends Component {
   constructor(props) {

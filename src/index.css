@@ -5,6 +5,7 @@ body {
   font: white; 
   background-image: url('https://i.imgur.com/3jF7B6A.jpg');
   background-size: 100%; 
-  background-repeat: repeat;
+  background-repeat: no-repeat;
+  background-size: cover; 
   background-attachment: fixed;  
 }

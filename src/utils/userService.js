@@ -1,12 +1,12 @@
 import userAPI from './userAPI';
-import tokenService from './tokenService'; 
+import tokenService from './tokenService';
 
 function signup(user) {
   return userAPI.signup(user)
-  .then(token => tokenService.setToken(token));
+    .then(token => tokenService.setToken(token));
 }
 
-function getUser(){
+function getUser() {
   return tokenService.getUserFromToken();
 }
 
@@ -14,9 +14,9 @@ function logout() {
   tokenService.removeToken();
 }
 
-function login(creds){
+function login(creds) {
   return userAPI.login(creds)
-  .then(token => tokenService.setToken(token));
+    .then(token => tokenService.setToken(token));
 }
 
 export default {
