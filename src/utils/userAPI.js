@@ -8,7 +8,7 @@ function signup(user) {
   })
   .then(res => {
     if (res.ok) return res.json();
-    throw new Error('Get off my lawn');
+    throw new Error('Invalid Credentials');
   })
   .then(({token}) => token);
 }
@@ -22,7 +22,7 @@ function login(creds) {
   })
   .then(res => {
     if (res.ok) return res.json();
-    throw new Error('Get off my lawn');
+    throw new Error('Invalid Credentials');
   })
   .then(({token}) => token);
 }

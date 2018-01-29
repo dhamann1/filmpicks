@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './ProfilePage.css';
-import ProfileGrid from '../../components/ProfileGrid/ProfileGrid'
+import MovieGrid from '../../components/MovieGrid/MovieGrid'
 import tokenService from '../../utils/tokenService'
 
 
@@ -31,7 +31,8 @@ class ProfilePage extends Component {
 	render() {
 		return (
 			<div>
-				<ProfileGrid movies={this.state.favoriteMovies} />
+				<h1> Watchlist </h1>
+				<MovieGrid movies={this.state.favoriteMovies} />
 			</div>
 		)
 	}

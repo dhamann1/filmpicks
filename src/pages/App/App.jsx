@@ -12,9 +12,9 @@ import MainPage from '../MainPage/MainPage';
 import MoviePage from '../MoviePage/MoviePage';
 import ProfilePage from '../ProfilePage/ProfilePage';
 import userService from '../../utils/userService';
- 
+
 class App extends Component {
-  constructor(props){
+  constructor(props) {
     super();
     this.state = {
       user: null
@@ -24,21 +24,21 @@ class App extends Component {
   //User Callback Methods 
   handleLogout = () => {
     userService.logout();
-    this.setState({user: null});
+    this.setState({ user: null });
   }
 
   handleSignup = () => {
-    this.setState({user: userService.getUser()});
+    this.setState({ user: userService.getUser() });
   }
 
   handleLogin = () => {
-    this.setState({user: userService.getUser()});
+    this.setState({ user: userService.getUser() });
   }
 
   //Lifecycle Methods 
-  componentDidMount(){
-    let user = userService.getUser(); 
-    this.setState({user});    
+  componentDidMount() {
+    let user = userService.getUser();
+    this.setState({ user });
   }
 
   render() {
@@ -46,56 +46,56 @@ class App extends Component {
       <div>
         <Router>
           <div>
-            <NavBar 
-              user={this.state.user} 
-              handleLogout={this.handleLogout} 
+            <NavBar
+              user={this.state.user}
+              handleLogout={this.handleLogout}
             />
             <Switch>
               <Route exact path='/' render={(props) =>
-                <MainPage 
+                <MainPage
                   {...props}
-                  handleLogout={this.handleLogout}                   
+                  handleLogout={this.handleLogout}
                 />
-              }/>
+              } />
               <Route exact path='/movies' render={(props) =>
                 <MainPage
                   {...props}
-                  handleLogout={this.handleLogout} 
+                  handleLogout={this.handleLogout}
                 />
-              }/>
-              <Route exact path='/movies/:id' render={(props) => 
-                <MoviePage 
+              } />
+              <Route exact path='/movies/:id' render={(props) =>
+                <MoviePage
                   {...props}
                   user={this.state.user}
-                  handleLogout={this.handleLogout} 
-                  
-                /> 
-              }/> 
-              <Route exact path='/profile' render={(props) => 
-                <ProfilePage 
-                  {...props}
-                  user={this.state.user}
-                  handleLogout={this.handleLogout} 
-          
-                /> 
-              }/> 
-              <Route exact path='/signup' render={(props) => 
-                <SignupPage 
-                  {...props}
-                  handleSignup={this.handleSignup}
-                  handleLogout={this.handleLogout} 
-                  
+                  handleLogout={this.handleLogout}
 
                 />
-              }/>
-              <Route exact path='/login' render={(props) => 
-                <LoginPage 
+              } />
+              <Route exact path='/profile' render={(props) =>
+                <ProfilePage
+                  {...props}
+                  user={this.state.user}
+                  handleLogout={this.handleLogout}
+
+                />
+              } />
+              <Route exact path='/signup' render={(props) =>
+                <SignupPage
+                  {...props}
+                  handleSignup={this.handleSignup}
+                  handleLogout={this.handleLogout}
+
+
+                />
+              } />
+              <Route exact path='/login' render={(props) =>
+                <LoginPage
                   {...props}
                   handleLogin={this.handleLogin}
-                  handleLogout={this.handleLogout} 
-                  
-                /> 
-              }/>
+                  handleLogout={this.handleLogout}
+
+                />
+              } />
             </Switch>
           </div>
         </Router>

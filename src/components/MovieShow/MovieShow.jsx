@@ -1,30 +1,31 @@
 import React from 'react';
 import './MovieShow.css';
 import ReactLoading from 'react-loading';
-import {Grid, Col} from 'react-bootstrap';
+import {Grid, Col, Row, Button} from 'react-bootstrap';
 
 
 const MovieShow = (props) => {
-  console.log(props.movie);
   return (
-    <div className="movieBox">
+    <div>
       {
         props.movie ?
-        <Grid> 
+        <Grid className="movieBox"> 
         <Col xs={12}> 
-         <Col xs={12} md={8} mdPush={5} lg={7} lgPush={5}> 
+         <Col className="movieDetails" xs={12} md={8} mdPush={4} lg={7} lgPush={5}> 
              <h1>{props.movie.title}</h1>
-             <span>"{props.movie.tagline}"</span>
+             <span className="tagline">{props.movie.tagline}</span>
              <p>{props.movie.overview}</p>
-             <div className="row nopadding release-details">
+             <Row>
                <Col xs={6}> Original Release: <span className="meta-data">{props.movie.release_date}</span></Col>
                <Col xs={6}> Running Time: <span className="meta-data">{props.movie.runtime} mins</span> </Col>
                <Col xs={6}> Box Office: <span className="meta-data">{props.movie.revenue}</span></Col>
-               <Col xs={6}> Vote Average: <span className="meta-data">{props.movie.vote}</span></Col>
-             </div>
+               <Col xs={6}> Vote Average: <span className="meta-data">{props.movie.vote_average}</span></Col>
+               <br /> 
+               <Button onClick={props.favorite}>Add to Watchlist</Button>
+             </Row>
          </Col>
          <Col xs={12} md={4} mdPull={8} lg={5} lgPull={7}> 
-           <img id="postertest" className="poster" src={`https://image.tmdb.org/t/p/w342/${props.movie.poster_path}`} alt="Movie Poster" />
+           <img className="poster" src={`https://image.tmdb.org/t/p/original${props.movie.poster_path}`} alt="Movie Poster" />
          </Col>
        </Col> 
        </Grid> 

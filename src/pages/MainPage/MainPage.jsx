@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import MovieGrid from '../../components/MovieGrid/MovieGrid';
 import './MainPage.css';
+import movieTMDB from '../../assets/poweredTMDB.png'
 import { FormControl, Button } from 'react-bootstrap';
 
 import API from '../../utils/tmbdAPI';
@@ -63,25 +64,32 @@ class MainPage extends Component {
   render() {
     return (
       <div>
-        <form onSubmit={(e) => this.handleSubmit(e)}>
-          <FormControl
-            id="formControlsText"
-            type="text"
-            placeholder="Search Movie (e.g. 'Star Wars')"
-            inputRef={(ref) => { this.input = ref }} />
-          <Button type="submit">Submit</Button>
-        </form>
-        <br />
-        <div className="mainButtons">
-          <button onClick={this.nowPlaying}>Now Playing</button>&nbsp;&nbsp;
-          <button onClick={this.topRated}>Top Rated</button>&nbsp;&nbsp;
-          <button onClick={this.popular}>Popular</button>&nbsp;&nbsp;
-          <button onClick={this.upcoming}>Upcoming</button>&nbsp;&nbsp;
+        <div className="logo" >
+          <img src="https://i.imgur.com/ixnlPvF.png" alt="tmdb" className="filmPic" />
+          </div>
+            <div className="movieControl">
+              <form onSubmit={(e) => this.handleSubmit(e)}>
+                <FormControl
+                  id="formControlsText"
+                  type="text"
+                  placeholder="Search Movie (e.g. 'Star Wars')"
+                  inputRef={(ref) => { this.input = ref }}
+                  bsSize="small"
+                  maxLength="50"
+                />
+                <Button type="submit">Submit</Button>
+              </form>
+              <br />
+              <div className="mainButtons">
+                <Button onClick={this.nowPlaying}>Now Playing</Button>&nbsp;&nbsp;
+          <Button onClick={this.topRated}>Top Rated</Button>&nbsp;&nbsp;
+          <Button onClick={this.popular}>Popular</Button>&nbsp;&nbsp;
+          <Button onClick={this.upcoming}>Upcoming</Button>&nbsp;&nbsp;
 			  </div>
-        <br />
-        <MovieGrid movies={this.state.movies} />
-      </div>
-    )
+            </div>
+            <MovieGrid movies={this.state.movies} />
+          </div>
+          )
   }
 }
 

@@ -1,0 +1,43 @@
+.movieBox {
+  margin-top: 50px;
+}
+
+.col-xs-12 {
+  padding: 0;
+  border-radius: 3px;
+  background: rgba(0, 0, 0, .85);
+  text-align: center;
+}
+
+.col-xs-6, p {
+  color: white;
+}
+
+.movieDetails {
+  padding: 25px;
+  text-align: left;
+}
+
+.tagline {
+  display: block;
+  padding-bottom: 5px;
+  color: #00FC87;
+  font-size: 29px;
+}
+
+h1 {
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 43px;
+}
+
+.meta-data {
+  display: block;
+  color: #00FC87;
+  font-size: 34px;
+}
+
+.poster {
+  width: 90%;
+  border-radius: 0 0 3px 3px;
+}

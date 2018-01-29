@@ -44,7 +44,7 @@ function login(req, res) {
 function like(req, res) {
   User.findOne({_id: req.body.user._id}, (err, user) => {
     if (!user.favoriteMovies.some(movie => movie.movieID === req.body.movieID)) {
-      user.favoriteMovies.push({movieTitle: req.body.movieTitle, movieID: req.body.movieID, image: req.body.image})
+      user.favoriteMovies.push({title: req.body.movieTitle, id: req.body.movieID, poster_path: req.body.image.slice(31)})
       user.save((err, data) => {
         if (err) {
           res.status(500).json(err)

@@ -1,15 +1,23 @@
-.container {
-    text-align: center; 
+body {
+  font-size: 16px;
+  font-family: 'Lato', sans-serif;
 }
 
-.formInput {
-    margin-top: 60px; 
+.movieControl {
+  text-align: center;
+  margin: 4% 2% 0;
 }
 
-input {
-    text-align: center; 
+.btn-default {
+  margin: .5%;
 }
 
-input, select, textarea{
-    color: white;
+.input-sm {
+  width: 350px;
+  margin: 0 auto;
+}
+
+.logo {
+  text-align: center;
+  margin-top: 2%;
 }

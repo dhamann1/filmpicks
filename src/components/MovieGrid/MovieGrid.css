@@ -1,6 +1,7 @@
 .moviePic  {
     width: 342px; 
     height: 513px;
+    margin-bottom: 6px;
 }
 
 .filmPic {
@@ -9,6 +10,16 @@
     margin: 0 auto;
 }
 
+
+#movieSpot {
+    text-align: center;
+    margin-bottom: 50px; 
+}
+
+.movieLink{
+    color: #00FC87;
+    font-weight: bold;
+}
 
 
 
