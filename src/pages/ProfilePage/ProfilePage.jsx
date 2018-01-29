@@ -31,7 +31,7 @@ class ProfilePage extends Component {
 	render() {
 		return (
 			<div>
-				<h1> Watchlist </h1>
+				<h1 className="wTitle"> Watchlist </h1>
 				<MovieGrid movies={this.state.favoriteMovies} />
 			</div>
 		)

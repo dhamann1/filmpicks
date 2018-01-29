@@ -1,7 +1,10 @@
 .navbar-inverse .navbar-nav>li>a:hover {
+  color: white;
+}
+.navbar-inverse .navbar-nav>li>a{
   color: #00FC87;
 }
 
-.navitem.active {
+.navbar-inverse .navbar-brand {
   color: #00FC87;
 }

@@ -4,6 +4,7 @@ import {
   BrowserRouter as Router,
   Switch,
   Route,
+  Redirect
 } from 'react-router-dom';
 import NavBar from '../../components/NavBar/NavBar';
 import SignupPage from '../SignupPage/SignupPage';
@@ -72,12 +73,15 @@ class App extends Component {
                 />
               } />
               <Route exact path='/profile' render={(props) =>
+              userService.getUser() ?
                 <ProfilePage
                   {...props}
                   user={this.state.user}
                   handleLogout={this.handleLogout}
 
                 />
+                :
+                <Redirect to='/login' />
               } />
               <Route exact path='/signup' render={(props) =>
                 <SignupPage

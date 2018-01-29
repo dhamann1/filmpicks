@@ -22,13 +22,14 @@
   display: block;
   padding-bottom: 5px;
   color: #00FC87;
-  font-size: 29px;
+  font-size: 26px;
 }
 
 h1 {
   text-transform: uppercase;
   font-weight: bold;
-  font-size: 43px;
+  color: #00FC87;
+  font-size: 40px;
 }
 
 .meta-data {
