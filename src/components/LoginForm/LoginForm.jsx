@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import userService from '../../utils/userService';
 import './LoginForm.css';
-import { Button } from 'react-bootstrap';
 
 class LoginForm extends Component {
   constructor(props) {
@@ -46,7 +45,7 @@ class LoginForm extends Component {
           </div>
           <div className="form-group">
             <div className="col-sm-12 text-center">
-            <button className="btn btn-default">Log In</button>&nbsp;&nbsp;&nbsp;              <Link to='/'>Cancel </Link>
+              <button className="btn btn-default">Log In</button>&nbsp;&nbsp;&nbsp;              <Link to='/'>Cancel </Link>
             </div>
           </div>
         </form>
