@@ -40,7 +40,7 @@ class MoviePage extends Component {
 	render() {
 		return (
 			<div>
-				<MovieShow movie={this.state.movie} favorite={this.favorite} />
+				<MovieShow movie={this.state.movie} user={this.props.user}/>
 			</div>
 		)
 	}

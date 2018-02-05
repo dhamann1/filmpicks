@@ -56,6 +56,22 @@ function like(req, res) {
 }
 
 
+
+// function deleteMovie(req, res) {
+//   User.findOne({_id: req.body.user._id}, (err, user) => {
+//     if (user.favoriteMovies.some(movie => movie.movieID === req.body.movieID)) {
+//       user.favoriteMovies.remove(req.body.movieID)
+//       user.save((err, data) => {
+//         if (err) {
+//           res.status(500).json(err)
+//         }
+//         res.status(200).json(data)
+//       })
+//     }
+//   })
+// }
+
+
 function findFavorites(req, res){
   User.findById(req.user._id).then(user => res.json(user.favoriteMovies))
 }
@@ -78,5 +94,6 @@ module.exports = {
   signup,
   login,
   like,
-  findFavorites
+  findFavorites,
+  deleteMovie
 };

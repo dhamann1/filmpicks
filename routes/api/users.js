@@ -12,4 +12,8 @@ router.post('/login', usersCtrl.login);
 
 router.post('/like', usersCtrl.like); 
 
+// router.post('/delete', usersCtrl.deleteMovie); 
+
+
+
 module.exports = router;

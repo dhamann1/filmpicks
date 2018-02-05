@@ -55,12 +55,14 @@ class App extends Component {
               <Route exact path='/' render={(props) =>
                 <MainPage
                   {...props}
+                  user={this.state.user}
                   handleLogout={this.handleLogout}
                 />
               } />
               <Route exact path='/movies' render={(props) =>
                 <MainPage
                   {...props}
+                  user={this.state.user}
                   handleLogout={this.handleLogout}
                 />
               } />
@@ -86,6 +88,7 @@ class App extends Component {
               <Route exact path='/signup' render={(props) =>
                 <SignupPage
                   {...props}
+                  user={this.state.user}
                   handleSignup={this.handleSignup}
                   handleLogout={this.handleLogout}
 
@@ -95,6 +98,7 @@ class App extends Component {
               <Route exact path='/login' render={(props) =>
                 <LoginPage
                   {...props}
+                  user={this.state.user}
                   handleLogin={this.handleLogin}
                   handleLogout={this.handleLogout}
 

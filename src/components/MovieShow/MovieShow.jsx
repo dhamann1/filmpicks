@@ -5,6 +5,9 @@ import {Grid, Col, Row, Button} from 'react-bootstrap';
 
 
 const MovieShow = (props) => {
+  let userWatch = props.user ? <Button onClick={props.favorite}>Add to Watchlist</Button> : <div>Hey</div>; 
+  console.log(props.user); 
+
   return (
     <div>
       {
@@ -21,7 +24,7 @@ const MovieShow = (props) => {
                <Col xs={6}> Box Office: <span className="meta-data">{props.movie.revenue}</span></Col>
                <Col xs={6}> Vote Average: <span className="meta-data">{props.movie.vote_average}</span></Col>
                <br /> 
-               <Button onClick={props.favorite}>Add to Watchlist</Button>
+               {userWatch}
              </Row>
          </Col>
          <Col xs={12} md={4} mdPull={8} lg={5} lgPull={7}> 
