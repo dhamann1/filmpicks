@@ -95,5 +95,4 @@ module.exports = {
   login,
   like,
   findFavorites,
-  deleteMovie
 };

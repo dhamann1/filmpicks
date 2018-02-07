@@ -5,9 +5,7 @@ import {Grid, Col, Row, Button} from 'react-bootstrap';
 
 
 const MovieShow = (props) => {
-  let userWatch = props.user ? <Button onClick={props.favorite}>Add to Watchlist</Button> : <div>Hey</div>; 
-  console.log(props.user); 
-
+  let userWatch = props.user ? <Button onClick={props.favorite}>Add to Watchlist</Button> : "";  
   return (
     <div>
       {

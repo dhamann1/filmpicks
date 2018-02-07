@@ -9,8 +9,8 @@ const MovieGrid = (props) => (
       {
         props.movies ? props.movies.map((movie, idx) =>
           <Col md={6} key={idx} id="movieSpot">
-            <img className="moviePic" src={`https://image.tmdb.org/t/p/w342${movie.poster_path}`} alt="Movie Poster" />
-            <br /> 
+            {!movie.poster_path ? <img className="moviePic" src='https://i.imgur.com/sBgAE8f.jpg' alt="Movie Poster" /> : <img className="moviePic" src={`https://image.tmdb.org/t/p/w342${movie.poster_path}`} alt="Movie Poster" />}
+            <br />
             <Link className="movieLink" to={`/movies/${movie.id}`}>{movie.title}</Link>
           </Col>)
           :
