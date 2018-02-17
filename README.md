@@ -12,7 +12,7 @@
 
 # Getting Started
 
-* <a href="film-picks.herokuapp.com">Film Picks</a>
+* <a href="https://film-picks.herokuapp.com/">Film Picks</a>
 
 	
 # Next Steps
