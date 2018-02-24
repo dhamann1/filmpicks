@@ -13,7 +13,7 @@ FilmPicks is a movie-discovery platform that allows users to explore the vast co
 <img src="https://i.imgur.com/3ZUrS95.png">
 
 
-# Technologies Used
+## Technologies Used
 - React
 - Node.js
 - MongoDB
@@ -25,11 +25,9 @@ FilmPicks is a movie-discovery platform that allows users to explore the vast co
 - Bootstrap
 - The Movie Database API (TMDb) 
 
-# The Design 
+## The Design 
 
 User stories and wire frames can be found on Trello: <a href="https://trello.com/b/9alDTWOD/filmpicks">FilmPicks Planning Board</a>
-
-# Installation 
 
 ## Installation
 1. Clone the repo to your terminal ```https://github.com/dhamann1/FilmPicks.git```
@@ -43,7 +41,7 @@ SECRET=<your JWT secret>
 5. Run ```npm start```
 6. Navigate to ```localhost:3000``` in your browser.
 
-# Next Steps
+## Next Steps
 We would like to add the following features:
 
 - Increase search functionality 
