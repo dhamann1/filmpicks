@@ -30,7 +30,7 @@ FilmPicks is a movie-discovery platform that allows users to explore the vast co
 User stories and wire frames can be found on Trello: <a href="https://trello.com/b/9alDTWOD/filmpicks">FilmPicks Planning Board</a>
 
 ## Installation
-1. Clone the repo to your terminal ```https://github.com/dhamann1/FilmPicks.git```
+1. Clone the repo to your terminal ``` git clone https://github.com/dhamann1/FilmPicks.git```
 2. Install the npm packages with ```npm install```
 3. Create a .env file with the following keys:
 ```javascript
